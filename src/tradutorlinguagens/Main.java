@@ -17,10 +17,11 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
 
-    private LinguagemNatural ling;
+    private LinguagemNatural natural;
     private LinguagemJava javaa;
     private LinguagemFortran fortran;
     private LinguagemMaquina maquina;
+    private String texto;
     
     /**
      * Creates new form Main
@@ -30,12 +31,12 @@ public class Main extends javax.swing.JFrame {
         fortran = new LinguagemFortran();
         maquina = new LinguagemMaquina();
         
-        this.ling = new LinguagemNatural();
+        this.natural = new LinguagemNatural();
         
         //adicionar observadores
-        this.ling.adicionarObserver(javaa);
-        this.ling.adicionarObserver(fortran);
-        this.ling.adicionarObserver(maquina);
+        this.natural.adicionarObserver(javaa);
+        this.natural.adicionarObserver(fortran);
+        this.natural.adicionarObserver(maquina);
         initComponents();
     }
 
@@ -175,12 +176,14 @@ public class Main extends javax.swing.JFrame {
 
     private void areaNaturalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_areaNaturalKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-           ling.setLinguagem(areaNatural.getText());
+          String[] lines = areaNatural.getText().split("\\n"); 
+                  
+         
+           natural.setLinguagem(lines[lines.length-1]);
            areaJava.append(javaa.getLinguagem());
            areaFortran.append(fortran.getLinguagem());
            areaMaquina.append(maquina.getLinguagem());
-            //areaJava.setText("System.out.println("+ling.getLinguagem()+");");
-            JOptionPane.showMessageDialog(areaFortran, "Apertei Enter");
+            //areaJava.setText("System.out.println("+natural.getLinguagem()+");");
         }
     }//GEN-LAST:event_areaNaturalKeyPressed
 

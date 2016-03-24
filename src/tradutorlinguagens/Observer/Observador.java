@@ -5,10 +5,12 @@
  */
 package tradutorlinguagens.Observer;
 
+import java.util.List;
+
 /**
  *
  * @author TheOwnzs
  */
 public interface Observador {
-       public void atualizar(Object ob);
+      public void atualizar(String Ling);
 }
