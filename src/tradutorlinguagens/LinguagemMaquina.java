@@ -5,6 +5,7 @@
  */
 package tradutorlinguagens;
 
+import java.util.List;
 import tradutorlinguagens.Observer.Observado;
 import tradutorlinguagens.Observer.Observador;
 
@@ -30,7 +31,7 @@ public class LinguagemMaquina implements Observador {
         this.Linguagem = Linguagem;
     }    
 
-    @Override
+   /* @Override
      public void atualizar(Object ob) {
          
          int binario;
@@ -43,6 +44,16 @@ public class LinguagemMaquina implements Observador {
        
          setLinguagem(sb.toString());
        }
+*/
+    @Override
+    public void atualizar(String Ling) {
+      String translatedString = "";
+      char[] stringArray = Ling.toCharArray();
+      for(int i=0;i<stringArray.length;i++){
+            translatedString += "0"+Integer.toBinaryString((int) stringArray[i]);
+      }
+         setLinguagem(translatedString+"\n");
+    }
     
 }
 

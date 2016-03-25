@@ -5,6 +5,7 @@
  */
 package tradutorlinguagens;
 
+import java.util.List;
 import tradutorlinguagens.Observer.Observado;
 import tradutorlinguagens.Observer.Observador;
 
@@ -14,6 +15,7 @@ import tradutorlinguagens.Observer.Observador;
  */
 public class LinguagemFortran implements Observador {
     private String Linguagem;
+    private List<String> lista;
 
     public LinguagemFortran() {
     }
@@ -31,10 +33,11 @@ public class LinguagemFortran implements Observador {
     }    
 
     @Override
-        public void atualizar(Object ob) {
-        setLinguagem(ob.toString());
-         System.out.println("Fortran");
+    public void atualizar(String Ling) {
+       if(Ling.contains("\"")){   
+          
+           setLinguagem("Print *, "+Ling+"\n");     
+             }   
     }
-    
 }
 

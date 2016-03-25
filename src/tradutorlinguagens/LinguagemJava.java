@@ -5,6 +5,7 @@
  */
 package tradutorlinguagens;
 
+import java.util.List;
 import tradutorlinguagens.Observer.Observado;
 import tradutorlinguagens.Observer.Observador;
 
@@ -14,6 +15,7 @@ import tradutorlinguagens.Observer.Observador;
  */
 public class LinguagemJava implements Observador {
     private String Linguagem;
+    private List<String> lista;
 
     public LinguagemJava() {
         Linguagem= "";
@@ -32,11 +34,12 @@ public class LinguagemJava implements Observador {
     }    
 
     @Override
-    public void atualizar(Object ob) {
-        String Linguagem = ob.toString();        
-      if(Linguagem.contains("\"")){
-          setLinguagem("System.out.println("+ob.toString()+");\n");    
-      }        
+    public void atualizar(String Ling) {
+       if(Ling.contains("\"")){           
+           setLinguagem("System.out.printl("+Ling+");\n");
+     }    
     }
+
+  
     
 }

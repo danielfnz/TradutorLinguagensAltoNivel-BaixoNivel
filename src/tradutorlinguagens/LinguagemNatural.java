@@ -17,14 +17,17 @@ import tradutorlinguagens.Observer.Observador;
  */
 public class LinguagemNatural implements Observado {    
      private List<Observador> observadores;
+     private List<String> lista;
      
     private String Linguagem;
 
     public LinguagemNatural(String Linguagem) {
         this.Linguagem = Linguagem;
+        this.lista = new ArrayList<>();
         this.observadores = new ArrayList<>();
     }
-      public LinguagemNatural() {    
+      public LinguagemNatural() { 
+        this.lista = new ArrayList<>();
         this.observadores = new ArrayList<>();
     }
 
@@ -33,8 +36,9 @@ public class LinguagemNatural implements Observado {
     }
 
     public void setLinguagem(String Linguagem) {
-        this.Linguagem = Linguagem;
-        notificar();
+     this.Linguagem = Linguagem;
+         notificar();
+        
     }    
 
     @Override
@@ -47,7 +51,7 @@ public class LinguagemNatural implements Observado {
         Iterator<Observador> it = this.observadores.iterator();
         while(it.hasNext()) {
             //Passa aqui o parametro para as classes
-            it.next().atualizar(getLinguagem());
+            it.next().atualizar(Linguagem);
         }
     }        
 }
