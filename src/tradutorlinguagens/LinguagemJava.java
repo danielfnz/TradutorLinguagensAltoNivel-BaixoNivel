@@ -35,9 +35,35 @@ public class LinguagemJava implements Observador {
 
     @Override
     public void atualizar(String Ling) {
-       if(Ling.contains("\"")){           
+       //Expressao regular, Se tiver " " 
+       if(Ling.matches("\"\\w+\"")){           
            setLinguagem("System.out.printl("+Ling+");\n");
-     }    
+      } 
+       
+       //Expressao regular para validar atribuicao inteiro x = 5
+       if(Ling.matches("\\w( )[=]( )\\d+|\\w()[=]()\\d+")){
+           setLinguagem("int "+Ling+";\n");
+       }    
+       //Expressão regular para validar atribuicao float, usando virgula.
+       if(Ling.matches("\\w( )[=]( )\\d+,\\d+|\\w()[=]()\\d+,\\d+")){
+           setLinguagem("float "+Ling+";\n");
+       }
+     
+       //Expressão regular para validar atribuicao String.
+       if(Ling.matches("\\w( )[=]( )\"\\D+\"|\\w()[=]()\"\\D+\"")){
+           setLinguagem("String "+Ling+";\n");
+       }
+        //Expressao regular para validar o Laco de repetição, aceitando 4 espaços entre palavras     
+        if(Ling.matches("Repita \\d+x: \"\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\\s\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\\s\\w+\\s\\w+\"")){
+            //Pega o valor do x vezes
+            String i = Ling.substring(Ling.indexOf("a ")+2, Ling.indexOf("x:"));
+             //Pega o texto
+            String texto = Ling.substring(Ling.indexOf("\""), Ling.lastIndexOf("\"")+1);
+            //Monta o for com as variaveis            
+            String Montar = "for( int i = 0; i < "+i+"; i++){\n system.out.println("+texto+");\n}\n"; 
+            //Seta a linguagem
+            setLinguagem(Montar);            
+        }
     }
 
   
