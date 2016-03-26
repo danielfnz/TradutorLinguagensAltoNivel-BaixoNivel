@@ -9,7 +9,10 @@ import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.text.BadLocationException;
 
 /**
  *
@@ -28,9 +31,8 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         javaa = new LinguagemJava();
-        fortran = new LinguagemFortran();
-        maquina = new LinguagemMaquina();
-        
+        fortran = new LinguagemFortran(this);
+        maquina = new LinguagemMaquina();            
         this.natural = new LinguagemNatural();
         
         //adicionar observadores
@@ -39,6 +41,18 @@ public class Main extends javax.swing.JFrame {
         this.natural.adicionarObserver(maquina);
         initComponents();
     }
+    
+    //Insere as variaveis no JTexArea FORTRAN
+    public void inserirVariavel(String tex){
+      try {          
+           this.areaFortran.getDocument().insertString(0, tex+"\n", null);  
+           
+        } catch (BadLocationException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -175,15 +189,20 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void areaNaturalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_areaNaturalKeyPressed
+        
+        //Verifica se a TECLA ENTER foi pressionada
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-          String[] lines = areaNatural.getText().split("\\n"); 
-                  
-         
+           //Quebra as linhas
+           String[] lines = areaNatural.getText().split("\\n"); 
+          
+          //Seta a linguagem natural como a ultima linha escrita
            natural.setLinguagem(lines[lines.length-1]);
+           
+          //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
            areaJava.append(javaa.getLinguagem());
            areaFortran.append(fortran.getLinguagem());
            areaMaquina.append(maquina.getLinguagem());
-            //areaJava.setText("System.out.println("+natural.getLinguagem()+");");
+          //////////////////////////////////////////////
         }
     }//GEN-LAST:event_areaNaturalKeyPressed
 
