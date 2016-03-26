@@ -64,8 +64,5 @@ public class LinguagemJava implements Observador {
             //Seta a linguagem
             setLinguagem(Montar);            
         }
-    }
-
-  
-    
+    }    
 }
