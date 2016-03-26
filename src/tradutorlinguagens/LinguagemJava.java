@@ -41,16 +41,16 @@ public class LinguagemJava implements Observador {
       } 
        
        //Expressao regular para validar atribuicao inteiro x = 5
-       if(Ling.matches("\\w( )[=]( )\\d+|\\w()[=]()\\d+")){
+       if(Ling.matches("\\w+( )[=]( )\\d+|\\w+()[=]()\\d+")){
            setLinguagem("int "+Ling+";\n");
        }    
        //Expressão regular para validar atribuicao float, usando virgula.
-       if(Ling.matches("\\w( )[=]( )\\d+,\\d+|\\w()[=]()\\d+,\\d+")){
+       if(Ling.matches("\\w+( )[=]( )\\d+,\\d+|\\w+()[=]()\\d+,\\d+")){
            setLinguagem("float "+Ling+";\n");
        }
      
        //Expressão regular para validar atribuicao String.
-       if(Ling.matches("\\w( )[=]( )\"\\D+\"|\\w()[=]()\"\\D+\"")){
+       if(Ling.matches("\\w+( )[=]( )\"\\D+\"|\\w+()[=]()\"\\D+\"")){
            setLinguagem("String "+Ling+";\n");
        }
         //Expressao regular para validar o Laco de repetição, aceitando 4 espaços entre palavras     
