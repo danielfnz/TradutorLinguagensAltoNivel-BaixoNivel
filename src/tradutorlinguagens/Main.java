@@ -195,8 +195,12 @@ public class Main extends javax.swing.JFrame {
            //Quebra as linhas
            String[] lines = areaNatural.getText().split("\\n"); 
           
-          //Seta a linguagem natural como a ultima linha escrita
+           try {
+           //Seta a linguagem natural como a ultima linha escrita
            natural.setLinguagem(lines[lines.length-1]);
+           }
+           catch(Exception ex) {              
+           }
            
           //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
            areaJava.append(javaa.getLinguagem());
@@ -204,6 +208,19 @@ public class Main extends javax.swing.JFrame {
            areaMaquina.append(maquina.getLinguagem());
           //////////////////////////////////////////////
         }
+          if(evt.getKeyCode() == KeyEvent.VK_DELETE) {
+     
+              if(areaNatural.getText().length()==0) {
+                  areaJava.setText(null);
+                  javaa.setLinguagem(null);
+                  fortran.setLinguagem(null);
+                  maquina.setLinguagem(null);
+                  areaFortran.setText(null);
+                  areaMaquina.setText(null);
+                  areaNatural.setText(null);
+              }
+          
+          }
     }//GEN-LAST:event_areaNaturalKeyPressed
 
     /**

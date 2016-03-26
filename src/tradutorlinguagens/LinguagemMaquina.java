@@ -46,12 +46,10 @@ public class LinguagemMaquina implements Observador {
              {  
                 binary.append((val & 128) == 0 ? 0 : 1);  
                 val <<= 1;  
-             }  
-          
+             }            
           }  
           //Define a linguagem como a linguagem convertida em binario
           setLinguagem(binary.toString()+"\n"); 
-     }
-       
+     }       
 }
 
