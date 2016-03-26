@@ -31,29 +31,22 @@ public class LinguagemMaquina implements Observador {
         this.Linguagem = Linguagem;
     }    
 
-   /* @Override
-     public void atualizar(Object ob) {
-         
-         int binario;
-         //Convertendo ASCII para inteiro, e de inteiro para binario
-         StringBuilder sb = new StringBuilder();
-         char[] letters = ob.toString().toCharArray(); 
-         for (char ch : letters) {              
-           sb.append(Integer.toBinaryString(ch));
-         }
+   @Override
+     public void atualizar(String Ling) {         
+        byte[] bytes = Ling.getBytes();  
+          StringBuilder binary = new StringBuilder();  
+          for (byte b : bytes)  
+          {  
+             int val = b;  
+             for (int i = 0; i < 8; i++)  
+             {  
+                binary.append((val & 128) == 0 ? 0 : 1);  
+                val <<= 1;  
+             }  
+            // binary.append(' ');  
+          }  
+          setLinguagem(binary.toString()+"\n"); 
+     }
        
-         setLinguagem(sb.toString());
-       }
-*/
-    @Override
-    public void atualizar(String Ling) {
-      String translatedString = "";
-      char[] stringArray = Ling.toCharArray();
-      for(int i=0;i<stringArray.length;i++){
-            translatedString += "0"+Integer.toBinaryString((int) stringArray[i]);
-      }
-         setLinguagem(translatedString+"\n");
-    }
-    
 }
 
