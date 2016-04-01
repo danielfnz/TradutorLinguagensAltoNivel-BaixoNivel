@@ -1,4 +1,5 @@
 <p align="center">
+    <img src="https://github.com/fonzaex/TradutorLinguagensAltoNivel-BaixoNivel/blob/master/src/tradutorlinguagens/icone.png" width="200"/>
   <img src="https://github.com/fonzaex/TradutorLinguagensAltoNivel-BaixoNivel/blob/master/src/tradutorlinguagens/final.png" width="350"/>
 </p>
 
