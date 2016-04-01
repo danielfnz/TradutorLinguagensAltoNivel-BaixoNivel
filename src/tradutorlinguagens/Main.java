@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
 
 /**
  *
@@ -25,34 +26,32 @@ public class Main extends javax.swing.JFrame {
     private LinguagemFortran fortran;
     private LinguagemMaquina maquina;
     private String texto;
-    
+
     /**
      * Creates new form Main
      */
     public Main() {
         javaa = new LinguagemJava();
         fortran = new LinguagemFortran(this);
-        maquina = new LinguagemMaquina();            
+        maquina = new LinguagemMaquina();
         this.natural = new LinguagemNatural();
-        
+
         //adicionar observadores
         this.natural.adicionarObserver(javaa);
         this.natural.adicionarObserver(fortran);
         this.natural.adicionarObserver(maquina);
         initComponents();
     }
-    
+
     //Insere as variaveis no JTexArea FORTRAN
-    public void inserirVariavel(String tex){
-      try {          
-           this.areaFortran.getDocument().insertString(0, tex+"\n", null);  
-           
+    public void inserirVariavel(String tex) {
+        try {
+            this.areaFortran.getDocument().insertString(0, tex + "\n", null);
+
         } catch (BadLocationException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,6 +81,7 @@ public class Main extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
+        areaFortran.setEditable(false);
         areaFortran.setColumns(20);
         areaFortran.setRows(5);
         jScrollPane1.setViewportView(areaFortran);
@@ -96,10 +96,12 @@ public class Main extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(areaNatural);
 
+        areaJava.setEditable(false);
         areaJava.setColumns(20);
         areaJava.setRows(5);
         jScrollPane3.setViewportView(areaJava);
 
+        areaMaquina.setEditable(false);
         areaMaquina.setColumns(20);
         areaMaquina.setRows(5);
         jScrollPane4.setViewportView(areaMaquina);
@@ -189,38 +191,42 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void areaNaturalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_areaNaturalKeyPressed
-        
+
         //Verifica se a TECLA ENTER foi pressionada
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-           //Quebra as linhas
-           String[] lines = areaNatural.getText().split("\\n"); 
-          
-           try {
-           //Seta a linguagem natural como a ultima linha escrita
-           natural.setLinguagem(lines[lines.length-1]);
-           }
-           catch(Exception ex) {              
-           }
-           
-          //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
-           areaJava.append(javaa.getLinguagem());
-           areaFortran.append(fortran.getLinguagem());
-           areaMaquina.append(maquina.getLinguagem());
-          //////////////////////////////////////////////
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            //PEGA TODO TEXTO
+            String lines = areaNatural.getText();
+            //SETA LINGUAGEM
+            natural.setLinguagem(lines);
+            //LIMPA TODOS JTEXTAREA
+            areaJava.setText("");
+            areaFortran.setText("");
+            areaMaquina.setText("");
+            //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
+            areaJava.append(javaa.getLinguagem());
+            areaFortran.append(fortran.getLinguagem());
+            areaMaquina.append(maquina.getLinguagem());
+
         }
-          if(evt.getKeyCode() == KeyEvent.VK_DELETE) {
-     
-              if(areaNatural.getText().length()==0) {
-                  areaJava.setText(null);
-                  javaa.setLinguagem(null);
-                  fortran.setLinguagem(null);
-                  maquina.setLinguagem(null);
-                  areaFortran.setText(null);
-                  areaMaquina.setText(null);
-                  areaNatural.setText(null);
-              }
-          
-          }
+    
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE ||evt.getKeyCode() == KeyEvent.VK_DELETE ) {
+              
+            //LIMPA TODOS JTEXTAREA
+            areaJava.setText("");
+            areaFortran.setText("");
+            areaMaquina.setText("");
+            //PEGA TODO TEXTO
+            String lines = areaNatural.getText();
+            
+            //SETA LINGUAGEM            
+            natural.setLinguagem(lines);
+
+            //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
+            areaJava.append(javaa.getLinguagem());
+            areaFortran.append(fortran.getLinguagem());
+            areaMaquina.append(maquina.getLinguagem());
+        }
+
     }//GEN-LAST:event_areaNaturalKeyPressed
 
     /**
@@ -254,13 +260,13 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
-                
+
             }
         });
 
     }
-    
-  
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaFortran;
     private javax.swing.JTextArea areaJava;

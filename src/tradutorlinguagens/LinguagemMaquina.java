@@ -33,6 +33,7 @@ public class LinguagemMaquina implements Observador {
 
    @Override
      public void atualizar(String Ling) { 
+          String Teste = "";
          //Pega a mensagem e transforma em bytes
         byte[] bytes = Ling.getBytes();  
         //Declara uma StringBuilder para receber os campos binarios
@@ -41,6 +42,10 @@ public class LinguagemMaquina implements Observador {
           //Varre o array dos bytes
           for (byte b : bytes) {  
              int val = b;  
+             if(val =='\n'){
+                 binary.append('\n');
+              
+             }
              //Converte de byte para binario de acordo com a tabela ASCII
              for (int i = 0; i < 8; i++)  
              {  
