@@ -54,25 +54,19 @@ public class LinguagemFortran implements Observador {
             } //Expressão regular para validar atribuicao float, usando virgula.
             else if (lines[i].matches("\\w+( )[=]( )\\d+,\\d+|\\w+()[=]()\\d+,\\d+|\\w+( )[=]( )\\d+\\.\\d+|\\w+()[=]()\\d+\\.\\d+|\\w+()[=]( )\\d+,\\d+|\\w+()[=]()\\d+,\\d+|\\w+()[=]( )\\d+\\.\\d+|\\w+()[=]()\\d+\\.\\d+")) {
                 //Formula a variavel em fortran;
-                String Floats = "REAL :: " + lines[i].substring(0, lines[i].lastIndexOf("="));
-                //Insere a variavel formulada no JTexArea (Main)
-                main.inserirVariavel(Floats);
+                String Floats = "REAL :: " + lines[i].substring(0, lines[i].lastIndexOf("="));             
                 //Atribui valor a variavel
                 Teste += (Floats + "\n"+lines[i]+"\n");
             } //Expressão regular para validar atribuicao String.
             else if (lines[i].matches("\\w+( )[=]( )\"\\D+\"|\\w+()[=]()\"\\D+\"")) {
                 //Formula a variavel em fortran;
-                String Caracteres = "CHARACTER :: " + lines[i].substring(0, lines[i].lastIndexOf("="));
-                //Insere a variavel formulada no JTexArea (Main)
-                main.inserirVariavel(Caracteres);
+                String Caracteres = "CHARACTER :: " + lines[i].substring(0, lines[i].lastIndexOf("="));           
                 //Atribui valor a variavel
                 Teste += (Caracteres + "\n"+lines[i]+"\n");
             } //Expressao regular para validar o Laco de repetição, aceitando 4 espaços entre palavras     
             else if (lines[i].matches("Repita \\d+x: \"\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\\s\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\\s\\w+\\s\\w+\"|Repita \\d+x:\"\\w+\"|Repita \\d+x:\"\\w+\\s\\w+\"|Repita \\d+x:\"\\w+\\s\\w+\\s\\w+\"|Repita \\d+x:\"\\w+\\s\\w+\\s\\w+\\s\\w+\"")) {
                 //Formula a variavel em fortran;
-                String Inteiros = "INTEGER :: i";
-                //Insere a variavel formulada no JTexArea (Main)
-                main.inserirVariavel(Inteiros);
+                String Inteiros = "INTEGER :: i";          
                 //Pega o valor do x vezes            
                 String vezes = lines[i].substring(lines[i].indexOf("a ") + 2, lines[i].indexOf("x:"));
                 //Pega o texto
