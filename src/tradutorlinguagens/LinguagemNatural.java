@@ -38,7 +38,7 @@ public class LinguagemNatural implements Observado {
     public void setLinguagem(String Linguagem) {
      this.Linguagem = Linguagem;
          notificar();
-        
+        System.out.print(Linguagem);
     }    
 
     @Override

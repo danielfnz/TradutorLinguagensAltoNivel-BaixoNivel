@@ -38,7 +38,7 @@ public class Main extends javax.swing.JFrame {
         fortran = new LinguagemFortran(this);
         maquina = new LinguagemMaquina();
         this.natural = new LinguagemNatural();
-this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/tradutorlinguagens/icone.png")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/tradutorlinguagens/imagens/icone.png")));
        
 
         //adicionar observadores
@@ -46,16 +46,6 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
         this.natural.adicionarObserver(fortran);
         this.natural.adicionarObserver(maquina);
         initComponents();
-    }
-
-    //Insere as variaveis no JTexArea FORTRAN
-    public void inserirVariavel(String tex) {
-        try {
-            this.areaFortran.getDocument().insertString(0, tex + "\n", null);
-
-        } catch (BadLocationException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
@@ -81,9 +71,15 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LangProgTranslator - Tradutor de Linguagens de Programação");
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocationByPlatform(true);
         setResizable(false);
 
@@ -112,7 +108,7 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
         areaMaquina.setRows(5);
         jScrollPane4.setViewportView(areaMaquina);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/Imagem.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/Imagem.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Linguagem de Máquina:");
@@ -126,14 +122,59 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Código em Fortran:");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/computaao.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/computaao.png"))); // NOI18N
+
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(102, 102, 102)));
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/settings.png"))); // NOI18N
+        jMenu3.setText("Funcionamento");
+        jMenu3.setAutoscrolls(true);
+        jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jMenu3.setMargin(new java.awt.Insets(0, 10, 0, 10));
+
+        jMenuItem3.setText("Como utilizar");
+        jMenuItem3.setToolTipText("");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/list.png"))); // NOI18N
+        jMenu1.setText("Lista de comandos");
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMenu1.setMargin(new java.awt.Insets(0, 10, 10, 0));
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dsadada(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setForeground(new java.awt.Color(255, 51, 51));
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/close.png"))); // NOI18N
+        jMenu2.setText("Sair");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sair(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
@@ -149,7 +190,7 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,31 +205,29 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel3)
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel4)
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(116, 116, 116))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(13, Short.MAX_VALUE))))
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(jLabel3)
+                            .addGap(114, 114, 114)
+                            .addComponent(jLabel4)
+                            .addGap(114, 114, 114)
+                            .addComponent(jLabel5)
+                            .addGap(136, 136, 136)
+                            .addComponent(jLabel2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel7))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleName("Tradutor de Linguagens");
@@ -209,7 +248,7 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
             areaJava.setText("");
             areaFortran.setText("");
             areaMaquina.setText("");
-            //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
+           //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
             areaJava.append(javaa.getLinguagem());
             areaFortran.append(fortran.getLinguagem());
             areaMaquina.append(maquina.getLinguagem());
@@ -235,6 +274,34 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
         }
 
     }//GEN-LAST:event_areaNaturalKeyPressed
+    //Atualiza os JTextAreas usando o exemplo dado
+    public void setExemplo(String texto) {
+        if(texto ==null){
+            areaNatural.setText("");
+            areaJava.setText("");
+            areaFortran.setText("");
+            areaMaquina.setText("");
+        }
+            natural.setLinguagem(texto);
+            //Preenche os outros JTexAreas com as linguagens geradas com o metodo atualizar(observer)
+            areaNatural.append(natural.getLinguagem());
+            areaJava.append(javaa.getLinguagem());
+            areaFortran.append(fortran.getLinguagem());
+            areaMaquina.append(maquina.getLinguagem());
+    }
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Funcionamento lista = new Funcionamento(this);
+        lista.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void dsadada(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dsadada
+        ListaComandos lista = new ListaComandos(this);
+        lista.setVisible(true);
+    }//GEN-LAST:event_dsadada
+
+    private void sair(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair
+this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_sair
 
     /**
      * @param args the command line arguments
@@ -285,6 +352,11 @@ this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
