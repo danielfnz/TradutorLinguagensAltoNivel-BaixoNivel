@@ -5,6 +5,8 @@
  */
 package tradutorlinguagens;
 
+import java.awt.Color;
+
 /**
  *
  * @author TheOwnzs
@@ -13,11 +15,13 @@ public class ListaComandos extends javax.swing.JFrame {
 
    Main main;
     public ListaComandos() {
+              getContentPane().setBackground(Color.LIGHT_GRAY);
         initComponents();
     }
     public ListaComandos(Main main) {
         this.main = main;
         initComponents();
+              getContentPane().setBackground(Color.LIGHT_GRAY);
     }
 
     /**
@@ -107,8 +111,6 @@ public class ListaComandos extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/eye.png"))); // NOI18N
         jButton1.setToolTipText("Exemplo");
-        jButton1.setMaximumSize(new java.awt.Dimension(57, 33));
-        jButton1.setMinimumSize(new java.awt.Dimension(57, 33));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

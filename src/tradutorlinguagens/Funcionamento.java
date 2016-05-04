@@ -5,6 +5,8 @@
  */
 package tradutorlinguagens;
 
+import java.awt.Color;
+
 /**
  *
  * @author TheOwnzs
@@ -20,6 +22,7 @@ public class Funcionamento extends javax.swing.JFrame {
     public Funcionamento(Main main) {
         this.main = main;
         initComponents();
+         getContentPane().setBackground(Color.LIGHT_GRAY);
     }
 
     /**
@@ -35,46 +38,31 @@ public class Funcionamento extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-        setTitle("Funcionamento do Software - LangProgTranslator ");
+        setTitle("Como utilizar a ferramenta - LangProgTranslator ");
+        setBackground(new java.awt.Color(153, 153, 255));
         setLocationByPlatform(true);
-        setPreferredSize(new java.awt.Dimension(970, 400));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Objetivo do Software");
+        jLabel1.setText("Objetivo da ferramenta educacional");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Este presente software tem como objetivo ensino de linguagens de alto nivel para linguagens de baixo nivel, para isso");
+        jLabel2.setText("<html>Esta ferramenta educacional tem por objetivo o auxilio na aprendizagem da disciplina de arquitetura de computadores, atuando como facilitadora do<br>processo de absorção e entendimento do conteúdo referente a tradução de  linguagens de alto nível(que se aproxima da comunicação humana) <br>para linguagens de baixo nível(linguagem de montagem), tornando o aprendizado muito mais intuitivo e interessante.</html>");
         jLabel2.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setText("Lista de Comandos");
+        jLabel3.setText("Lista de comandos da ferramenta");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel4.setText("Digitar algum comando listado abaixo e pressionar a tecla ENTER.");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel5.setText("Ao pressionar a tecla ENTER, o software relizara a tradução automaticamente para as demais linguagens");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel6.setText("Podem ser declaradas variaveis inteiras, ponto flutuante e String, alem do laço de repetição.");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel7.setText("Para imprimir um um texto, deve-se colocar a palavra desejada entre \" \"(aspas duplas).");
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel8.setText("(JAVA,Fortran e Linguagem de Maquina).");
+        jLabel4.setText("<html>Digitar algum comando listado abaixo e pressionar a tecla <strong>ENTER</strong>.<br>Ao pressionar a tecla <strong>ENTER</strong>, o software relizara a tradução automaticamente para as demais linguagens (JAVA,Fortran e Linguagem de Maquina)<br>Podem ser declaradas variaveis inteiras, ponto flutuante e String, alem do laço de repetição.<br>Para imprimir um um texto, deve-se colocar a palavra desejada entre \" \"(aspas duplas).</html>");
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel28.setText("Funcionamento do Software");
+        jLabel28.setText("Funcionamento da ferramenta");
 
         jButton1.setText("Para visualizar a lista de comandos, clique aqui.");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +71,11 @@ public class Funcionamento extends javax.swing.JFrame {
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setText(" realiza traduções simultenamente.");
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel29.setText("Níveis de Linguagens de Programação");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel5.setText("<html>*<strong>Linguagem de programação de alto nível:</strong><br>Linguagem com um nível de abstração relativamente elevado, longe da linguagem de máquina e mais próximo à linguagem humana.<br><br><strong>*Linguagem de programação de nivel intermediário:</strong><br>As instruções são escritas em um código intermediário inteligível aos humanos porém ainda próximas do codigo da máquina.<br><br><strong>*Linguagens de baixo nivel:</strong><br>As instruções são escritas diretamente em códigos numéricos binários ou hexadecimais, ou seja, são escritas em uma linguagem “que a máquina entende”.</html>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,71 +84,53 @@ public class Funcionamento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
+                        .addGap(355, 355, 355)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
+                        .addGap(428, 428, 428)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9)))
-                .addContainerGap(274, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(294, 294, 294)
-                    .addComponent(jLabel28)
-                    .addContainerGap(594, Short.MAX_VALUE)))
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel29)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGap(4, 4, 4)
-                .addComponent(jLabel8)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel6)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
+                .addComponent(jLabel28)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(108, 108, 108)
-                    .addComponent(jLabel28)
-                    .addContainerGap(240, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+      this.setVisible(false);
         ListaComandos lista = new ListaComandos(main);
         lista.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -202,12 +175,9 @@ public class Funcionamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
