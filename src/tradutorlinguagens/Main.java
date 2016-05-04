@@ -5,12 +5,15 @@
  */
 package tradutorlinguagens;
 
+import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Image;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -46,6 +49,7 @@ public class Main extends javax.swing.JFrame {
         this.natural.adicionarObserver(fortran);
         this.natural.adicionarObserver(maquina);
         initComponents();
+        getContentPane().setBackground(Color.LIGHT_GRAY);
     }
 
     /**
@@ -73,8 +77,8 @@ public class Main extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,42 +128,53 @@ public class Main extends javax.swing.JFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/computaao.png"))); // NOI18N
 
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(102, 102, 102)));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jMenu3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/settings.png"))); // NOI18N
-        jMenu3.setText("Funcionamento");
+        jMenu3.setText("Funcionamento da Ferramenta");
+        jMenu3.setActionCommand("");
         jMenu3.setAutoscrolls(true);
-        jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMenu3.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jMenu3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jMenu3.setMargin(new java.awt.Insets(0, 10, 0, 10));
-
-        jMenuItem3.setText("Como utilizar");
-        jMenuItem3.setToolTipText("");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clickFerramenta(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
-
         jMenuBar1.add(jMenu3);
 
-        jMenu1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jMenu1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/list.png"))); // NOI18N
         jMenu1.setText("Lista de comandos");
-        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jMenu1.setAutoscrolls(true);
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jMenu1.setMargin(new java.awt.Insets(0, 10, 10, 0));
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dsadada(evt);
+                clickLista(evt);
             }
         });
         jMenuBar1.add(jMenu1);
 
+        jMenu4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/statistics.png"))); // NOI18N
+        jMenu4.setText("Avaliar Ferramenta");
+        jMenu4.setAutoscrolls(true);
+        jMenu4.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openPage(evt);
+            }
+        });
+        jMenuBar1.add(jMenu4);
+
+        jMenu2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
         jMenu2.setForeground(new java.awt.Color(255, 51, 51));
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tradutorlinguagens/imagens/close.png"))); // NOI18N
         jMenu2.setText("Sair");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenu2.setFont(new java.awt.Font("Times New Roman", 0, 17)); // NOI18N
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sair(evt);
@@ -289,19 +304,25 @@ public class Main extends javax.swing.JFrame {
             areaFortran.append(fortran.getLinguagem());
             areaMaquina.append(maquina.getLinguagem());
     }
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Funcionamento lista = new Funcionamento(this);
-        lista.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void dsadada(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dsadada
+    private void clickLista(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickLista
         ListaComandos lista = new ListaComandos(this);
         lista.setVisible(true);
-    }//GEN-LAST:event_dsadada
+    }//GEN-LAST:event_clickLista
 
     private void sair(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sair
 this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_sair
+
+    private void clickFerramenta(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickFerramenta
+        Funcionamento lista = new Funcionamento(this);
+        lista.setVisible(true);
+    }//GEN-LAST:event_clickFerramenta
+
+    private void openPage(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openPage
+    try {
+    Desktop.getDesktop().browse(new URL("https://docs.google.com/forms/d/1oxbquclRrpcF3-SI44YdZRWRDpmt1FIIgEwCXrZeJmQ/viewform").toURI());
+} catch (Exception e) {}        // TODO add your handling code here:
+    }//GEN-LAST:event_openPage
 
     /**
      * @param args the command line arguments
@@ -355,8 +376,8 @@ this.dispose();        // TODO add your handling code here:
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

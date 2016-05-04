@@ -5,65 +5,87 @@
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder>
-              <Color PropertyName="shadow" blue="66" green="66" red="66" type="rgb"/>
-            </EtchetBorder>
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
           </Border>
         </Property>
       </Properties>
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder bottom="1" left="10" right="1" top="1"/>
+              </Border>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/tradutorlinguagens/imagens/settings.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Funcionamento"/>
+            <Property name="text" type="java.lang.String" value="Funcionamento da Ferramenta"/>
+            <Property name="actionCommand" type="java.lang.String" value=""/>
             <Property name="autoscrolls" type="boolean" value="true"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="1"/>
+              <Font name="Times New Roman" size="17" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 10, 0, 10]"/>
             </Property>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Como utilizar"/>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="clickFerramenta"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder bottom="1" left="10" right="1" top="1"/>
               </Border>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/tradutorlinguagens/imagens/list.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Lista de comandos"/>
+            <Property name="autoscrolls" type="boolean" value="true"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="1"/>
+              <Font name="Times New Roman" size="17" style="0"/>
             </Property>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[0, 10, 10, 0]"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dsadada"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="clickLista"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu4">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder bottom="1" left="10" right="1" top="1"/>
+              </Border>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/tradutorlinguagens/imagens/statistics.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Avaliar Ferramenta"/>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="17" style="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="openPage"/>
           </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder bottom="1" left="10" right="1" top="1"/>
+              </Border>
+            </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="ff" type="rgb"/>
             </Property>
@@ -72,7 +94,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
+              <Font name="Times New Roman" size="17" style="0"/>
             </Property>
           </Properties>
           <Events>

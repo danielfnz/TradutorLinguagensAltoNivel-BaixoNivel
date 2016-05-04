@@ -18,6 +18,7 @@ public class LinguagemFortran implements Observador {
     Main main;
     private String Linguagem;
     private List<String> lista;
+    private int cont=97;
 
     public LinguagemFortran() {
     }
@@ -65,14 +66,17 @@ public class LinguagemFortran implements Observador {
                 Teste += (Caracteres + "\n"+lines[i]+"\n");
             } //Expressao regular para validar o Laco de repetição, aceitando 4 espaços entre palavras     
             else if (lines[i].matches("Repita \\d+x: \"\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\\s\\w+\"|Repita \\d+x: \"\\w+\\s\\w+\\s\\w+\\s\\w+\"|Repita \\d+x:\"\\w+\"|Repita \\d+x:\"\\w+\\s\\w+\"|Repita \\d+x:\"\\w+\\s\\w+\\s\\w+\"|Repita \\d+x:\"\\w+\\s\\w+\\s\\w+\\s\\w+\"")) {
+               cont++;
+               char c = (char) cont;
+           
                 //Formula a variavel em fortran;
-                String Inteiros = "INTEGER :: i";          
+                String Inteiros = "INTEGER :: "+c+"\n";          
                 //Pega o valor do x vezes            
                 String vezes = lines[i].substring(lines[i].indexOf("a ") + 2, lines[i].indexOf("x:"));
                 //Pega o texto
                 String texto = lines[i].substring(lines[i].indexOf("\""), lines[i].lastIndexOf("\"") + 1);
                 //Monta o for com as variaveis            
-                String Montar = Inteiros+"\ndo i = 1, " + vezes + "\n Print *, " + texto + "\nend do\n";
+                String Montar = Inteiros+"do "+c+" = 1, " + vezes + "\n Print *, " + texto + "\nend do\n";
                 //Seta a linguagem
                 Teste += (Montar);
             }
